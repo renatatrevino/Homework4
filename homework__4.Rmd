@@ -1,0 +1,105 @@
+---
+title: "Homework_4"
+author: "Renata Trevino"
+date: "2023-04-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+**Function**
+```{r}
+BirthdayMatch<- function(num_people=23) {     ##num_people function parameter
+  birthdays <- sample(1:365, size=num_people, replace=TRUE)  ##365 days of birthdays
+  length(unique(birthdays[duplicated(birthdays)]))   ##determining number of matches using unique and duplicated and length
+}
+```
+
+**testing function**
+```{r}
+set.seed(68)
+BirthdayMatch(45)
+```
+```{r}
+set.seed(68)
+BirthdayMatch(100)
+```
+```{r}
+## Running simulation 10 times for num_people 10,20,30,40,50,60,70,80,90,100, with 100,000 iterations##
+
+set.seed(314159)  ##set same seed of 314159
+num_people10 <- sapply(rep(10, 100000), BirthdayMatch)  ##
+set.seed(314159)
+num_people20 <- sapply(rep(20, 100000), BirthdayMatch)
+set.seed(314159)
+num_people30 <- sapply(rep(30, 100000), BirthdayMatch)
+set.seed(314159)
+num_people40 <- sapply(rep(40, 100000), BirthdayMatch)
+set.seed(314159)
+num_people50 <- sapply(rep(50, 100000), BirthdayMatch)
+set.seed(314159)
+num_people60 <- sapply(rep(60, 100000), BirthdayMatch)
+set.seed(314159)
+num_people70 <- sapply(rep(70, 100000), BirthdayMatch)
+set.seed(314159)
+num_people80 <- sapply(rep(80, 100000), BirthdayMatch)
+set.seed(314159)
+num_people90 <- sapply(rep(90, 100000), BirthdayMatch)
+set.seed(314159)
+num_people100 <- sapply(rep(100, 100000), BirthdayMatch)
+```
+
+**summary and histograms of outputs for simulations**
+```{r}
+summary(num_people10)
+hist(num_people10)
+```
+
+```{r}
+summary(num_people20)
+hist(num_people20)
+```
+```{r}
+summary(num_people30)
+hist(num_people30)
+```
+
+```{r}
+summary(num_people40)
+hist(num_people40)
+```
+
+```{r}
+summary(num_people50)
+hist(num_people50)
+```
+
+```{r}
+summary(num_people60)
+hist(num_people60)
+```
+```{r}
+summary(num_people70)
+hist(num_people70)
+```
+
+```{r}
+summary(num_people80)
+hist(num_people80)
+```
+
+```{r}
+summary(num_people90)
+hist(num_people90)
+```
+```{r}
+summary(num_people100)
+hist(num_people100)
+```
+**As the number of people increases throughout the simulations, the amunt of matched birthdays increases. Additionally, as the number of people increase the number of matched birthdays becomes a bell curve around the different means.** 
